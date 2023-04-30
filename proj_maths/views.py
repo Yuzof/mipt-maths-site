@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.core.cache import cache
 from . import terms_work
+from . import choice_work
 
 
 def index(request):
@@ -43,3 +44,19 @@ def send_term(request):
 def show_stats(request):
     stats = terms_work.get_terms_stats()
     return render(request, "stats.html", stats)
+
+def cover_page(request):
+    return render(request, "cover_page.html")
+
+def pricing_page(request):
+    return render(request, "pricing_page.html")
+
+def send_choice(request):
+    if request.method == "POST":
+        cache.clear()
+        yourself = request.POST.get("yourself_button")
+        online = request.POST.get("online_button")
+        tutor = request.POST.get("tutor_button")
+        choice_work.write_choice(yourself, online, tutor)
+    context = choice_work.get_choice_stats()
+    return render(request, "pricing_page.html", context)

@@ -1,0 +1,10 @@
+.welcome {
+    color: maroon;
+    background-color: red;
+    font-style: italic;
+}
+
+p {
+    background-color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+}
