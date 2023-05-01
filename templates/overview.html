@@ -1,0 +1,53 @@
+{% extends "base_page.html" %}
+
+<!-- load static -->
+{% load static %}
+
+{% block page-title %}
+Overview
+{% endblock %}
+
+{% block page-heading %}
+Home
+{% endblock %}
+
+{% block content-heading %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-10 fw-normal">Do you recognize the people?</h1>
+  </div>
+</header>
+{% endblock %}
+
+{% block content-body%}
+<img src="{% static 'afin_school1.png' %}" alt="" width="100%">
+{% endblock %}
+
+{% block content-underbody %}
+<div class="container px-4 py-5" id="terms-table">
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th style="width: 4%;"></th>
+                    <th style="width: 22%;">Name</th>
+                    <th style="width: 32%;">Years of life</th>
+                    <th style="width: 42%;">Biography/Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cnt, name, years, bio in terms %}
+                <tr>
+                    <th scope="row" class="text-start"> {{ cnt }}</th> 
+                    <td> {{ name }} </td>
+                    <td> {{ years }}</td>
+                    <td> {{ bio }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

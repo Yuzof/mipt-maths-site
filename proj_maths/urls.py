@@ -25,5 +25,8 @@ urlpatterns = [
     path('stats', views.show_stats),
     path('cover-page', views.cover_page),
     path('pricing-page', views.pricing_page),
-    path('send-choice', views.send_choice)
+    path('send-choice', views.send_choice),
+    path('overview', views.overview),
+    path('comment', views.comment),
+    path('gallery', views.gallery)
 ]
